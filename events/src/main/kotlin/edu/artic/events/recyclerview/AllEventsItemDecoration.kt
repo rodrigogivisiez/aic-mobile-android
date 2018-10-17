@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import edu.artic.events.AllEventsAdapter
 import edu.artic.events.AllEventsCellHeaderViewModel
-import edu.artic.events.AllEventsCellViewModel
+import edu.artic.events.EventCellViewModel
 import edu.artic.events.R
 
 class AllEventsItemDecoration(
@@ -32,7 +32,7 @@ class AllEventsItemDecoration(
                     outRect.top = if (position == 0) headerVerticalSpacing else verticalSpacing
                     outRect.bottom = halfOfVertical
                 }
-                is AllEventsCellViewModel -> {
+                is EventCellViewModel -> {
                     val adjustedPosition = position - (it.headerPosition - 1)
                     val column = (adjustedPosition) % spanCount // item column
                     outRect.left = horizontalSpacing - column * horizontalSpacing / spanCount // spacing - column * ((1f / spanCount) * spacing)
